@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# shellcheck source=./framework.sh
+source "${BASE_DIR}/framework.sh"
+
+# Get the current date in the specified format
+current_date=$(date +"%A, %e %B %Y, %r")
+
+# Print the formatted date
+print_columns "Date & Time" "${current_date}"
