@@ -13,7 +13,7 @@ excluded_types=(
 )
 
 # shellcheck disable=SC2046
-disks="$(df -h --local --print-type $(printf " -x %s" "${excluded_types[@]}") | tail -n +2 | sort -u -k 7)"
+disks="$(df -h --local --print-type $(printf " -x %s" "${excluded_types[@]}") | grep -v '/boot' | tail -n +2 | sort -u -k 7)"
 
 text=""
 while IFS= read -r disk; do
