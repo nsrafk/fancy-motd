@@ -9,4 +9,4 @@ source "${BASE_DIR}/framework.sh"
 current_date=$(date +"%A, %e %B %Y, %r")
 
 # Print the formatted date
-print_columns "Date & Time" "${current_date}"
+print_columns "Date/time" "${current_date}"
