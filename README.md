@@ -8,7 +8,7 @@ Fancy, colorful MOTD written in bash. Server status at a glance.
 ### Running
 Clone the repository:
 ```shell
-git clone https://github.com/bcyran/fancy-motd.git
+git clone https://github.com/nsrafk/fancy-motd
 ```
 
 Then run `motd.sh`:

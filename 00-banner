@@ -1,0 +1,3 @@
+#! /bin/bash
+hostname=${HOSTNAME:-$(hostname)}
+figlet -t -f speed "${hostname}" | /usr/games/lolcat -f

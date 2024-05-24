@@ -9,6 +9,7 @@ excluded_types=(
     "ecryptfs"
     "squashfs"
     "tmpfs"
+    "overlay"
 )
 
 # shellcheck disable=SC2046
