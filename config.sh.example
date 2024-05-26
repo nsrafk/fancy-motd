@@ -10,6 +10,7 @@ WIDTH=50
 
 # Services to show
 declare -A services
+services["smbd"]="Samba"
 services["nginx"]="Nginx"
 services["docker"]="Docker"
 services["sshd"]="SSH"
