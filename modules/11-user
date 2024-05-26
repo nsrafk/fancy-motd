@@ -6,5 +6,6 @@ source "${BASE_DIR}/framework.sh"
 
 user=${USER:-$(id -un)}
 hostname=${HOSTNAME:-$(hostname)}
+ip=${SSH_CLIENT:-$(ip)}
 
-print_columns "Logged as" "${user}@${hostname}"
+print_columns "Logged as" "${user}@${hostname} (connected from: ${ip})"
