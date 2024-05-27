@@ -12,6 +12,7 @@ WIDTH=50
 declare -A services
 services["smbd"]="Samba"
 services["docker"]="Docker"
+services["containerd"]="ContainerD"
 services["sshd"]="SSH"
 services["fail2ban"]="Fail2Ban"
 services["ufw"]="UFW"
