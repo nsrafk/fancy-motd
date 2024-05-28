@@ -5,7 +5,8 @@ set -euo pipefail
 source "${BASE_DIR}/framework.sh"
 
 ip_v4=$(dig +short txt ch whoami.cloudflare @1.0.0.1 | tr -d '"')
+country=$(whois "${ip_v4}" | grep -i -m 1 country | cut -d ':' -f 2 | xargs)
 
-text=$(print_wrap "${WIDTH}" "${ip_v4}")
+text=$(print_wrap "${WIDTH}" "${ip_v4}" "(${country})")
 
 print_columns "Public IP" "${text}"
