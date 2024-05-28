@@ -4,9 +4,26 @@ set -euo pipefail
 # shellcheck source=./framework.sh
 source "${BASE_DIR}/framework.sh"
 
-ips_v4=$(ip a | awk '/inet / && /global/ {split($2, arr, /\//); print arr[1]}')
-IFS=$'\n' read -r -a ips <<< "${ips_v4}"
+#ips_v4=$(ip a | awk '/inet / && /global/ {split($2, arr, /\//); print arr[1]}')
+#FS=$'\n' read -r -a ips <<< "${ips_v4}"
 
+#text=$(print_wrap "${WIDTH}" "${ips[@]}")
+
+# Extract IPv4 addresses and store them in an array
+ips_v4=$(ip a | awk '/inet / && /global/ {split($2, arr, /\//); print arr[1]}')
+echo "DEBUG: ips_v4='$ips_v4'"  # Debugging statement
+
+IFS=$'\n'
+echo "DEBUG: IFS set to newline"
+
+read -r -a ips <<< "$ips_v4"
+echo "DEBUG: Number of IPs found: ${#ips[@]}"  # Debugging statement
+for ip in "${ips[@]}"; do
+    echo "DEBUG: IP='$ip'"  # Debugging statement
+done
+
+# Wrap the IP addresses
 text=$(print_wrap "${WIDTH}" "${ips[@]}")
+echo "DEBUG: Wrapped text='$text'"  # Debugging statement
 
 print_columns "IP addresses" "${text}"
