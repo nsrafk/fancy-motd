@@ -4,7 +4,7 @@ set -euo pipefail
 # shellcheck source=../framework.sh
 source "${BASE_DIR}/framework.sh"
 
-ip_v4=$(curl ifconfig.me/ip)
+ip_v4=$(dig +short txt ch whoami.cloudflare @1.0.0.1 | tr -d '"')
 
 text=$(print_wrap "${WIDTH}" "${ip_v4}")
 
