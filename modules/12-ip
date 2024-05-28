@@ -5,7 +5,7 @@ set -eu
 source "${BASE_DIR}/framework.sh"
 
 ips_v4=$(ip a | awk '/inet / && /global/ {split($2, arr, /\//); print arr[1]}')
-FS=$'\n' read -r -d '' -a ips <<< "${ips_v4}"
+IFS=$'\n' read -r -d '' -a ips <<< "${ips_v4}"
 
 text=$(print_wrap "${WIDTH}" "${ips[@]}")
 
