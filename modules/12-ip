@@ -13,10 +13,10 @@ source "${BASE_DIR}/framework.sh"
 ips_v4=$(ip a | awk '/inet / && /global/ {split($2, arr, /\//); print arr[1]}')
 echo "DEBUG: ips_v4='$ips_v4'"  # Debugging statement
 
-IFS=''
+IFS=$'\n'
 echo "DEBUG: IFS set to newline"
 
-read -r -d '' -a ips <<< "{$ips_v4}"
+read -r -a ips <<< "{$ips_v4}"
 echo "DEBUG: Number of IPs found: ${#ips[@]}"  # Debugging statement
 for ip in "${ips[@]}"; do
     echo "DEBUG: IP='$ip'"  # Debugging statement
