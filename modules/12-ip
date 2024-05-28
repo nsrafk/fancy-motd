@@ -11,18 +11,14 @@ source "${BASE_DIR}/framework.sh"
 
 #print_columns "IP addresses" "${text}"
 
-# Extract IPv4 addresses and store them in a variable
 ips_v4=$(ip a | awk '/inet / && /global/ {split($2, arr, /\//); print arr[1]}')
-# Initialize an empty array
+
 ips=()
 
-# Read each line from ips_v4 into the array
 while IFS= read -r line; do
     ips+=("$line")
 done <<< "$ips_v4"
 
-# Wrap the IP addresses
 text=$(print_wrap "${WIDTH}" "${ips[@]}")
 
-# Print the IP addresses in columns
-print_columns "IP addresses" "${text}"
+print_columns "Internal IP(s)" "${text}"
