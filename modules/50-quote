@@ -4,6 +4,7 @@ set -euo pipefail
 # shellcheck source=../framework.sh
 source "${BASE_DIR}/framework.sh"
 
-quote="${CW}$(/usr/games/fortune -s "${CN}" | fold -sw "${WIDTH}" | /usr/games/cowsay)"
+#quote="${CW}$(/usr/games/fortune -s | fold -sw "${WIDTH}" | "${CN}"/usr/games/cowsay)"
+quote="$(${CW}/usr/games/fortune -s | fold -sw "${WIDTH}" | ${CN}/usr/games/cowsay)"
 
 print_columns "Quote" "${quote}"
