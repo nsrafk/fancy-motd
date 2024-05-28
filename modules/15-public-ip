@@ -6,8 +6,8 @@ source "${BASE_DIR}/framework.sh"
 
 ip_v4=$(dig +short txt ch whoami.cloudflare @1.0.0.1 | tr -d '"')
 country=$(whois "${ip_v4}" | grep -i -m 1 country | cut -d ':' -f 2 | xargs)
-ipv4_country="${ip_v4} ${country}"
+ipv4_country="${ip_v4} (${country})"
 
-text=$(print_wrap "${WIDTH}" "(${ipv4_country})")
+text=$(print_wrap "${WIDTH}" "${ipv4_country}")
 
 print_columns "Public IP" "${text}"
