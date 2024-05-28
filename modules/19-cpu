@@ -7,6 +7,6 @@ source "${BASE_DIR}/framework.sh"
 PROCESSOR_NAME=$(grep "model name" /proc/cpuinfo | cut -d ' ' -f3- | awk '{print $0}' | head -1)
 PROCESSOR_COUNT=$(grep -ioP 'processor\t:' /proc/cpuinfo | wc -l)
 
-cpu="$PROCESSOR_COUNT X, $PROCESSOR_NAME"
+cpu="$PROCESSOR_COUNT X $PROCESSOR_NAME"
 
 print_columns "CPU" "${cpu}"
