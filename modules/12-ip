@@ -13,7 +13,7 @@ source "${BASE_DIR}/framework.sh"
 ips_v4=$(ip a | awk '/inet / && /global/ {split($2, arr, /\//); print arr[1]}')
 echo "DEBUG: ips_v4='$ips_v4'"  # Debugging statement
 
-IFS=$'\n'
+IFS=''
 echo "DEBUG: IFS set to newline"
 
 read -r -a ips <<< "{$ips_v4}"
