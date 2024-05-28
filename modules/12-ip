@@ -4,9 +4,30 @@
 # shellcheck source=./framework.sh
 source "${BASE_DIR}/framework.sh"
 
+#ips_v4=$(ip a | awk '/inet / && /global/ {split($2, arr, /\//); print arr[1]}')
+#IFS=$'\n' read -r -d '' -a ips <<< "${ips_v4}"
+
+#text=$(print_wrap "${WIDTH}" "${ips[@]}")
+
+#print_columns "IP addresses" "${text}"
+
+# Extract IPv4 addresses and store them in a variable
 ips_v4=$(ip a | awk '/inet / && /global/ {split($2, arr, /\//); print arr[1]}')
-IFS=$'\n' read -r -d '' -a ips <<< "${ips_v4}"
+echo "DEBUG: ips_v4='$ips_v4'"  # Debugging statement
 
+# Split the IPs into an array using newline as the separator
+IFS=$'\n' read -r -a ips <<< "$ips_v4"
+echo "DEBUG: IFS set to newline"
+
+# Check the number of IPs and print each one for debugging
+echo "DEBUG: Number of IPs found: ${#ips[@]}"  # Debugging statement
+for ip in "${ips[@]}"; do
+    echo "DEBUG: IP='$ip'"  # Debugging statement
+done
+
+# Wrap the IP addresses
 text=$(print_wrap "${WIDTH}" "${ips[@]}")
+echo "DEBUG: Wrapped text='$text'"  # Debugging statement
 
+# Print the IP addresses in columns
 print_columns "IP addresses" "${text}"
