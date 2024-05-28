@@ -9,4 +9,4 @@ hostname=${HOSTNAME:-$(hostname)}
 ip=${SSH_CLIENT%% *}
 ip=${ip:-$(ip)}
 
-print_columns "Logged as" "${user}@${hostname} (connected from: ${ip})"
+print_columns "Logged as" "${user}/${ip})@${hostname} (connected from: ${ip})"
