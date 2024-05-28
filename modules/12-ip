@@ -16,7 +16,7 @@ echo "DEBUG: ips_v4='$ips_v4'"  # Debugging statement
 IFS=$'\n'
 echo "DEBUG: IFS set to newline"
 
-read -r -a ips <<< "$ips_v4"
+read -r -d '' -a ips <<< "$ips_v4"
 echo "DEBUG: Number of IPs found: ${#ips[@]}"  # Debugging statement
 for ip in "${ips[@]}"; do
     echo "DEBUG: IP='$ip'"  # Debugging statement
