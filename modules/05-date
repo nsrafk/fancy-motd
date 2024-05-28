@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-# shellcheck source=./framework.sh
+# shellcheck source=../framework.sh
 source "${BASE_DIR}/framework.sh"
 
 # Get the current date in the specified format

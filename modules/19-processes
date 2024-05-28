@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-# shellcheck source=./framework.sh
+# shellcheck source=../framework.sh
 source "${BASE_DIR}/framework.sh"
 
 PROCESS=$(ps -eo user=|sort|uniq -c | awk '{ print $2 " " $1 }')

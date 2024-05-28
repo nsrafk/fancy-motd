@@ -11,7 +11,7 @@ services["fail2ban"]="Fail2Ban"
 services["ufw"]="UFW"
 services["smbd"]="Samba"
 
-# shellcheck source=./framework.sh
+# shellcheck source=../framework.sh
 source "${BASE_DIR}/framework.sh"
 
 statuses=()
