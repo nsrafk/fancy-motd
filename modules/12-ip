@@ -15,9 +15,13 @@ source "${BASE_DIR}/framework.sh"
 ips_v4=$(ip a | awk '/inet / && /global/ {split($2, arr, /\//); print arr[1]}')
 echo "DEBUG: ips_v4='$ips_v4'"  # Debugging statement
 
-# Split the IPs into an array using newline as the separator
-IFS=$'\n' read -r -a ips <<< "$ips_v4"
-echo "DEBUG: IFS set to newline"
+# Initialize an empty array
+ips=()
+
+# Read each line from ips_v4 into the array
+while IFS= read -r line; do
+    ips+=("$line")
+done <<< "$ips_v4"
 
 # Check the number of IPs and print each one for debugging
 echo "DEBUG: Number of IPs found: ${#ips[@]}"  # Debugging statement
