@@ -3,7 +3,7 @@
 # Don't change! We want predictable outputs
 export LANG="en_US.UTF-8"
 
-# Dir of this scrip
+# Dir of this script
 BASE_DIR=$(dirname "$(readlink -f "$0")")
 export BASE_DIR
 
